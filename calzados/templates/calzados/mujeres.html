@@ -1,0 +1,41 @@
+{% extends 'calzados/home.html' %}
+
+{% block titulo %}
+    <h1 class="masthead-heading text-uppercase mb-0">Calzados de Mujer</h1>
+{% endblock titulo %} 
+
+
+{% block contenido %}
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre del Calzado</th>
+            <th>Descripción</th>
+            <th>Nº de Talle</th>
+            <th>Precio $</th>
+            <th>Color</th>
+            <th>Material</th>
+            <th>Fecha de Exposición</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+{% for m in mujeres  %}
+        <tr>
+            <td>{{ m.id }}</td>
+            <td>{{ m.nombre }}</td>
+            <td>{{ m.descripcion }}</td>
+            <td>{{ m.talle }}</td>
+            <td>{{ m.precio }}</td>
+            <td>{{ m.color }}</td>
+            <td>{{ m.material }}</td>
+            <td>{{ m.fecha_Exposicion }}</td>
+            <td>{{ m.email }}</td>
+        </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+{% endblock contenido %} 
