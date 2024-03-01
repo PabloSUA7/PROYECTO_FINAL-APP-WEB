@@ -6,6 +6,19 @@
 
 
 {% block contenido %}
+<table>
+    <tr>
+        <td width="200"><h2>Nenes</h2></td>
+        <td>
+            <a
+            href="{% url 'neneCrear' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="Crear Publicación"> </i>
+            </a>
+        </td>
+    </tr>
+</table>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -18,6 +31,7 @@
             <th>Material</th>
             <th>Fecha de Exposición</th>
             <th>Email</th>
+            <th>Modificar</th>
         </tr>
     </thead>
     <tbody>
@@ -32,6 +46,21 @@
             <td>{{ n.material }}</td>
             <td>{{ n.fecha_Exposicion }}</td>
             <td>{{ n.email }}</td>
+            <td>
+                <a
+                  href="{% url 'neneActualizar' n.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Editar"></i>
+                </a>
+                <a
+                  href="{% url 'neneBorrar' n.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Eliminar"></i>
+                </a>                
+              </td>
+
         </tr>
 {% endfor %}
     </tbody>
